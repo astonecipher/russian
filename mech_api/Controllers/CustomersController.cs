@@ -71,6 +71,7 @@ namespace mech_api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        // TODO: This has useless return right now.
         // POST: api/Customers
         [ResponseType(typeof(Customer))]
         public async Task<IHttpActionResult> PostCustomer(Customer customer)
@@ -82,8 +83,13 @@ namespace mech_api.Controllers
             var cust = new Customer(customer.firstName, customer.lastName, customer.emailAddress);
             db.Customers.Add(cust);
             await db.SaveChangesAsync();
-            // this isn't going to work because 'id' is still null.
-            return CreatedAtRoute("customer", new { id = cust.id }, cust);
+
+            // for the sake of testing, let's just get back what we
+            // put in, but from the entity made by Entity Framework.
+            return Json(cust);
+            
+            // not sure what this is supposed to do.
+            //return CreatedAtRoute("api/customers", new { id = cust.id }, cust);
         }
 
         // DELETE: api/Customers/5
