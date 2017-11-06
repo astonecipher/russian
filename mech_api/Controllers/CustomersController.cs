@@ -82,8 +82,8 @@ namespace mech_api.Controllers
             var cust = new Customer(customer.firstName, customer.lastName, customer.emailAddress);
             db.Customers.Add(cust);
             await db.SaveChangesAsync();
-
-            return CreatedAtRoute("customer", new { id = customer.id }, customer);
+            // this isn't going to work because 'id' is still null.
+            return CreatedAtRoute("customer", new { id = id }, customer);
         }
 
         // DELETE: api/Customers/5

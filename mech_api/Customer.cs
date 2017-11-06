@@ -12,17 +12,17 @@ namespace mech_api
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
-    {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer(string first, string last, string email)
+    public partial class Customer { 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Customer(string first, string last, string email)
         {
             this.firstName = first;
             this.lastName = last;
             this.emailAddress = email;
-            this.Customer_Vehicle = null;
-            this.CustomerAddresses = null;
-            this.CustomerPhones = null;
+            this.Customer_Vehicle = new List<Customer_Vehicle>();
+            this.CustomerAddresses = new List<CustomerAddress>();
+            this.CustomerPhones = new List<CustomerPhone>();
+            this.dateAdded = DateTime.UtcNow;
         }
     
         public int id { get; set; }
@@ -30,16 +30,7 @@ namespace mech_api
         public string lastName { get; set; }
         public string emailAddress { get; set; }
 
-        private DateTime _dateAdded;
-        public System.DateTime dateAdded
-        {
-            get { return this._dateAdded; }
-            set
-            {
-                this._dateAdded = DateTime.Now;
-            }
-        }
-
+        public System.DateTime dateAdded { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer_Vehicle> Customer_Vehicle { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
