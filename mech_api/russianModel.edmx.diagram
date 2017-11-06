@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="98fa3278e6bd426a849ee19fc73a9612" Name="Diagram1">
+        <EntityTypeShape EntityType="russianModel.Customer" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="russianModel.Customer_Vehicle" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="russianModel.CustomerAddress" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="russianModel.CustomerPhone" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="russianModel.History" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="russianModel.Vehicle" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="russianModel.FK_Customer_Vehicle_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="russianModel.FK_CustomerAddress_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="russianModel.FK_CustomerPhone_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="russianModel.FK_History_Vehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="russianModel.FK_Customer_Vehicle_Vehicle" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
